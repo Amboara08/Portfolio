@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-amboara-andriamamonjisoa",
+  "version": "1.0.0",
+  "description": "Portfolio développeur web d'Amboara Oliva Andriamamonjisoa (site statique HTML/CSS/JS, sans framework ni étape de build).",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
