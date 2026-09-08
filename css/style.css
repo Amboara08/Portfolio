@@ -1,5 +1,5 @@
 :root{
-  --bg:#0d0e14;
+  --bg:black;
   --bg-soft:#14151f;
   --card:#1a1b27;
   --card-2:#1f2130;
@@ -28,8 +28,8 @@
 }
 *{
   box-sizing:border-box;
-   margin:0;
-    padding:0;
+  margin:0;
+  padding:0;
 }
 html{
   scroll-behavior:smooth;
