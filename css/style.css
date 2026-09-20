@@ -776,7 +776,7 @@ footer p{
   }
 }
 
-/* ---------- RESPONSIVE ---------- */
+
 @media (max-width:960px){
   .about-grid, .contact-grid{
     grid-template-columns:1fr; 
@@ -826,7 +826,7 @@ footer p{
   }
 }
 
-/* ---------- RESPONSIVE ENHANCEMENTS ---------- */
+
 html, body {
   width: 100%;
   max-width: 100%;

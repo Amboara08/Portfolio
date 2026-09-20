@@ -27,7 +27,7 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   burgerBtn.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
 }));
 
-/* Skills + languages render */
+
 const skills = [
   {name:'HTML', level:'Bon', pct:85},
   {name:'CSS', level:'Bon', pct:85},
@@ -63,7 +63,7 @@ langs.forEach(l => {
   langList.appendChild(row);
 });
 
-/* Reveal on scroll + bar fill */
+
 const revealEls = document.querySelectorAll('.reveal');
 const barFills = document.querySelectorAll('.bar-fill');
 const io = new IntersectionObserver((entries) => {
@@ -86,7 +86,7 @@ const barIo = new IntersectionObserver((entries) => {
 }, {threshold:.4});
 barFills.forEach(el => barIo.observe(el));
 
-/* Contact form validation + mailto fallback */
+
 const form = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 function setErr(id, msg){ document.getElementById('err-'+id).textContent = msg || ''; }
