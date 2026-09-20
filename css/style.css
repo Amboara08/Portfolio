@@ -247,7 +247,6 @@ section{padding:88px 0;}
  width:fit-content;
 }
 
-/* ---------- HERO ---------- */
 .hero{
   position:relative; 
   padding:168px 0 100px;
@@ -760,7 +759,6 @@ footer p{
   color:var(--text);
 }
 
-/* ---------- reveal on scroll ---------- */
 .reveal
 {opacity:0; 
   transform:translateY(18px); 
