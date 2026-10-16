@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio d’Amboara Oliva Andriamamonjisoa, étudiant en développement web à l’ESMIA. Découvrez ses projets, ses compétences et son parcours.">
+  <meta name="description" content="Portfolio d’ANDRIAMAMONJISOA Amboara Oliva, étudiant en développement web à l’ESMIA. Découvrez ses projets, ses compétences et son parcours.">
   <meta name="theme-color" content="#f7f8fc">
-  <title>Amboara Oliva — Développeur web</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="ANDRIAMAMONJISOA Amboara Oliva — Développeur web">
+  <meta property="og:description" content="Portfolio moderne : projets, compétences et parcours en développement web.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ANDRIAMAMONJISOA Amboara Oliva — Développeur web">
+  <meta name="twitter:description" content="Découvrez mes projets et mes compétences en développement web.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%231769ff'/%3E%3Cstop offset='1' stop-color='%237956ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M19 47 29 17h7l10 30h-8l-2-7H28l-2 7Zm11-14h5l-2.5-9Z' fill='white'/%3E%3C/svg%3E">
+  <title>ANDRIAMAMONJISOA Amboara Oliva — Développeur web</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +24,7 @@
 </head>
 
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
 
   <header class="site-header" id="siteHeader">
@@ -27,12 +36,12 @@
       </a>
 
       <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
-        <a href="#accueil" data-nav>Accueil</a>
-        <a href="#projets" data-nav>Projets</a>
-        <a href="#apropos" data-nav>À propos</a>
-        <a href="#competences" data-nav>Compétences</a>
-        <a href="#formation" data-nav>Formation</a>
-        <a href="#contact" data-nav>Contact</a>
+        <a href="#accueil" data-nav><i class="fa-solid fa-house" aria-hidden="true"></i><span>Accueil</span></a>
+        <a href="#projets" data-nav><i class="fa-solid fa-folder-open" aria-hidden="true"></i><span>Projets</span></a>
+        <a href="#apropos" data-nav><i class="fa-solid fa-user-astronaut" aria-hidden="true"></i><span>À propos</span></a>
+        <a href="#competences" data-nav><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>Compétences</span></a>
+        <a href="#formation" data-nav><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Formation</span></a>
+        <a href="#contact" data-nav><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Contact</span></a>
       </nav>
 
       <div class="nav-actions">
@@ -57,18 +66,27 @@
         <div class="hero-copy reveal is-visible">
           <div class="availability">
             <span class="availability-dot" aria-hidden="true"></span>
-            Licence 3 Informatique · ESMIA
+            Disponible pour un stage ou une collaboration
           </div>
 
-          <p class="hero-intro">Bonjour, je suis Amboara Oliva Andriamamonjisoa.</p>
+          <p class="hero-intro">Bonjour, je suis ANDRIAMAMONJISOA Amboara Oliva.</p>
           <h1 id="hero-title">Développeur web <span>créatif.</span></h1>
           <p class="hero-text">Je conçois des expériences numériques modernes, rapides et utiles, avec une attention particulière portée à la clarté, au responsive et à la qualité du code.</p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="#projets">
-              Voir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+              Voir mes projets
             </a>
-            <a class="button button-secondary" href="#contact">Me contacter</a>
+            <a class="button button-secondary" href="#contact">
+              <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+              Me contacter
+            </a>
+            <a class="button button-cv" href="cv-amboara-andriamamonjisoa.pdf" download>
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              <span>Télécharger mon CV</span>
+              <small>PDF</small>
+            </a>
           </div>
 
           <div class="hero-links" aria-label="Liens rapides">
@@ -78,8 +96,8 @@
             <a href="mailto:amboaraandria61@gmail.com" aria-label="M’envoyer un e-mail">
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             </a>
-            <a href="cv-amboara-andriamamonjisoa.pdf" download aria-label="Télécharger mon CV">
-              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            <a href="https://wa.me/261389679715" target="_blank" rel="noopener noreferrer" aria-label="Me contacter sur WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -90,14 +108,14 @@
           <div class="code-window">
             <div class="window-bar">
               <div class="window-dots"><span></span><span></span><span></span></div>
-              <span class="window-name">portfolio.js</span>
+              <span class="window-name">portfolio</span>
               <span class="window-action">•••</span>
             </div>
             <div class="code-body">
               <div class="code-numbers">01<br>02<br>03<br>04<br>05<br>06<br>07</div>
               <pre><code><span class="code-purple">const</span> developer = {
   name: <span class="code-green">"Amboara"</span>,
-  focus: <span class="code-green">"Web"</span>,
+  focus: <span class="code-green">"Code"</span>,
   skills: [
     <span class="code-blue">"HTML"</span>, <span class="code-blue">"CSS"</span>,
     <span class="code-blue">"JavaScript"</span>
@@ -160,6 +178,12 @@
               <ul class="tag-list" aria-label="Technologies utilisées">
                 <li>React</li><li>Node.js</li><li>Electron</li><li>Express</li><li>MySQL</li>
               </ul>
+              <div class="project-actions">
+                <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  Voir le code
+                </a>
+              </div>
             </div>
           </article>
 
@@ -176,6 +200,12 @@
               <ul class="tag-list" aria-label="Technologies utilisées">
                 <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
               </ul>
+              <div class="project-actions">
+                <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  Voir le code
+                </a>
+              </div>
             </div>
           </article>
 
@@ -195,6 +225,12 @@
               <ul class="tag-list" aria-label="Technologies utilisées">
                 <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
               </ul>
+              <div class="project-actions">
+                <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  Voir le code
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -205,7 +241,7 @@
       <div class="container about-grid">
         <div class="portrait-wrap reveal">
           <div class="portrait-frame">
-            <img src="images/profile-photo.png" alt="Portrait d’Amboara Oliva Andriamamonjisoa" width="640" height="640" loading="lazy">
+            <img src="images/profile-photo.png" alt="Portrait d’ANDRIAMAMONJISOA Amboara Oliva" width="640" height="640" loading="lazy">
           </div>
           <div class="portrait-note">
             <span class="note-mark">A.</span>
@@ -218,16 +254,6 @@
           <h2 id="about-title">Curieux, persévérant et toujours prêt à apprendre.</h2>
           <p>Étudiant en troisième année à l’ESMIA, je m’intéresse au développement web et aux technologies numériques. La création de sites et d’applications me permet de mettre en pratique mes connaissances tout en développant de nouvelles compétences.</p>
           <p>Chaque projet est pour moi une occasion d’expérimenter, de résoudre un problème et de construire une solution pratique, claire et évolutive.</p>
-
-          <div class="stats-grid" aria-label="Quelques chiffres">
-            <div><strong>9+</strong><span>Technologies pratiquées</span></div>
-            <div><strong>3</strong><span>Projets sélectionnés</span></div>
-            <div><strong>3</strong><span>Langues parlées</span></div>
-          </div>
-
-          <a class="text-link" href="cv-amboara-andriamamonjisoa.pdf" download>
-            Télécharger mon CV <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
-          </a>
         </div>
       </div>
     </section>
@@ -248,7 +274,11 @@
             <h3>Front-end</h3>
             <p>Interfaces structurées, accessibles et adaptées à toutes les tailles d’écran.</p>
             <div class="skill-cloud">
-              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Responsive Design</span>
+              <span><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span>
+              <span><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span>
+              <span><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span>
+              <span><i class="fa-brands fa-react" aria-hidden="true"></i>React</span>
+              <span><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>Responsive</span>
             </div>
           </article>
 
@@ -257,7 +287,10 @@
             <h3>Back-end</h3>
             <p>Logique serveur, APIs et gestion des données.</p>
             <div class="skill-cloud">
-              <span>Node.js</span><span>Express</span><span>PHP</span><span>MySQL</span>
+              <span><i class="fa-brands fa-node-js" aria-hidden="true"></i>Node.js</span>
+              <span><i class="fa-solid fa-server" aria-hidden="true"></i>Express</span>
+              <span><i class="fa-brands fa-php" aria-hidden="true"></i>PHP</span>
+              <span><i class="fa-solid fa-database" aria-hidden="true"></i>MySQL</span>
             </div>
           </article>
 
@@ -266,7 +299,12 @@
             <h3>Outils</h3>
             <p>Un environnement simple pour développer, versionner et livrer.</p>
             <div class="skill-cloud">
-              <span>Git</span><span>GitHub</span><span>VS Code</span><span>Docker</span><span>Vercel</span><span>Electron</span>
+              <span><i class="fa-brands fa-git-alt" aria-hidden="true"></i>Git</span>
+              <span><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</span>
+              <span><i class="fa-solid fa-code" aria-hidden="true"></i>VS Code</span>
+              <span><i class="fa-brands fa-docker" aria-hidden="true"></i>Docker</span>
+              <span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>Vercel</span>
+              <span><i class="fa-solid fa-atom" aria-hidden="true"></i>Electron</span>
             </div>
           </article>
 
@@ -341,9 +379,16 @@
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Construisons quelque chose d’utile ensemble.</h2>
             <p>Une opportunité, une collaboration ou simplement une question ? Écrivez-moi et je vous répondrai dès que possible.</p>
-            <a class="button button-light" href="mailto:amboaraandria61@gmail.com">
-              Envoyer un message <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
+            <div class="contact-actions">
+              <a class="button button-light" href="https://wa.me/261389679715" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                Écrire sur WhatsApp
+              </a>
+              <a class="button button-contact-email" href="mailto:amboaraandria61@gmail.com">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                Écrire un e-mail
+              </a>
+            </div>
           </div>
 
           <address class="contact-details">
@@ -353,7 +398,15 @@
             </a>
             <a href="tel:+261389697915">
               <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <span><small>Téléphone</small>+261 38 96 97 915</span>
+              <span><small>Téléphone principal</small>038 96 979 15</span>
+            </a>
+            <a href="tel:+261329037799">
+              <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+              <span><small>Deuxième numéro</small>032 90 377 99</span>
+            </a>
+            <a href="https://wa.me/261389679715" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span><small>WhatsApp</small>+261 38 96 79 715</span>
             </a>
             <div>
               <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -365,19 +418,30 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <a class="brand footer-brand" href="#accueil" aria-label="Retour à l’accueil">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>AMBOARA</span>
-      </a>
-      <p>© <span id="currentYear"></span> Amboara Oliva Andriamamonjisoa</p>
-      <div class="footer-links">
-        <a href="https://github.com/Amboara08" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="mailto:amboaraandria61@gmail.com">E-mail</a>
-        <a href="#accueil" aria-label="Retour en haut"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </footer>
+  <button class="portfolio-companion" id="portfolioCompanion" type="button" aria-label="Dire bonjour à Môra, le compagnon du portfolio">
+    <span class="companion-message" id="companionMessage" aria-hidden="true">Coucou&nbsp;! 👋</span>
+    <span class="companion-shadow" aria-hidden="true"></span>
+    <span class="companion-body" aria-hidden="true">
+      <span class="companion-spark">✦</span>
+      <span class="companion-phone"><i></i></span>
+      <span class="companion-laptop">
+        <span class="companion-laptop-screen"><i></i></span>
+        <span class="companion-laptop-base"></span>
+      </span>
+      <span class="companion-glasses"><i></i></span>
+      <span class="companion-graduation-cap"><i></i></span>
+      <span class="companion-face">
+        <span class="companion-eye companion-eye-left"><i></i></span>
+        <span class="companion-eye companion-eye-right"><i></i></span>
+        <span class="companion-cheek companion-cheek-left"></span>
+        <span class="companion-cheek companion-cheek-right"></span>
+        <span class="companion-mouth"></span>
+      </span>
+      <span class="companion-arm companion-arm-left"></span>
+      <span class="companion-arm companion-arm-right"></span>
+      <span class="companion-foot companion-foot-left"></span>
+      <span class="companion-foot companion-foot-right"></span>
+    </span>
+  </button>
 </body>
 </html>
