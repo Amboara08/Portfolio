@@ -182,6 +182,14 @@ if (reduceMotion.matches || !('IntersectionObserver' in window)) {
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('[data-nav]')];
 const visibilityRatios = new Map();
+const sectionAccents = {
+  accueil: '23, 105, 255',
+  projets: '36, 181, 137',
+  apropos: '121, 86, 255',
+  competences: '38, 154, 255',
+  formation: '240, 162, 46',
+  contact: '111, 77, 255'
+};
 
 function setActiveNavigation(sectionId) {
   navLinks.forEach((link) => {
@@ -192,6 +200,9 @@ function setActiveNavigation(sectionId) {
       link.removeAttribute('aria-current');
     }
   });
+
+  root.style.setProperty('--section-accent-rgb', sectionAccents[sectionId] || sectionAccents.accueil);
+  document.body.dataset.activeSection = sectionId;
 }
 
 setActiveNavigation(location.hash.slice(1) || 'accueil');
@@ -241,6 +252,136 @@ if (pointerCanHover.matches && !reduceMotion.matches) {
     });
   });
 }
+
+const projectDialog = document.getElementById('projectDialog');
+const projectDialogTitle = document.getElementById('projectDialogTitle');
+const projectDialogMeta = document.getElementById('projectDialogMeta');
+const projectDialogDescription = document.getElementById('projectDialogDescription');
+const projectDialogTags = document.getElementById('projectDialogTags');
+const projectDialogLink = document.getElementById('projectDialogLink');
+const projectDialogLinkLabel = document.getElementById('projectDialogLinkLabel');
+const projectDialogIcon = projectDialog?.querySelector('.project-dialog-visual > i');
+let projectDialogTrigger = null;
+
+const projectPalettes = [
+  { start: '#178b74', end: '#1769ff', icon: 'fa-recycle' },
+  { start: '#2d9b55', end: '#e1a52e', icon: 'fa-seedling' },
+  { start: '#1769ff', end: '#7956ff', icon: 'fa-calendar-check' }
+];
+
+function closeProjectDialog() {
+  if (!projectDialog?.open) return;
+  projectDialog.close();
+}
+
+function openProjectDialog(card, trigger, index) {
+  if (!projectDialog || !projectDialogTitle || !projectDialogDescription || !projectDialogTags) return;
+
+  const title = card.querySelector('h3')?.textContent.trim() || 'Projet';
+  const meta = card.querySelector('.project-meta span')?.textContent.trim() || 'Projet sélectionné';
+  const description = card.querySelector('.project-content > p')?.textContent.trim() || '';
+  const sourceLink = card.querySelector('.project-actions a');
+  const tags = [...card.querySelectorAll('.tag-list li')].map((tag) => tag.textContent.trim());
+  const palette = projectPalettes[index] || projectPalettes[0];
+
+  projectDialogTitle.textContent = title;
+  projectDialogMeta.textContent = meta;
+  projectDialogDescription.textContent = description;
+  projectDialogTags.replaceChildren(...tags.map((tag) => {
+    const item = document.createElement('li');
+    item.textContent = tag;
+    return item;
+  }));
+
+  if (projectDialogLink && sourceLink) {
+    projectDialogLink.href = sourceLink.href;
+    if (projectDialogLinkLabel) {
+      projectDialogLinkLabel.textContent = sourceLink.textContent.trim();
+    }
+  }
+
+  if (projectDialogIcon) {
+    projectDialogIcon.className = `fa-solid ${palette.icon}`;
+  }
+
+  projectDialog.style.setProperty('--dialog-start', palette.start);
+  projectDialog.style.setProperty('--dialog-end', palette.end);
+  projectDialogTrigger = trigger;
+  document.body.classList.add('dialog-open');
+  projectDialog.showModal();
+}
+
+document.querySelectorAll('[data-project-card]').forEach((card, index) => {
+  const trigger = card.querySelector('[data-project-details]');
+  trigger?.addEventListener('click', () => openProjectDialog(card, trigger, index));
+});
+
+projectDialog?.querySelectorAll('[data-dialog-close]').forEach((button) => {
+  button.addEventListener('click', closeProjectDialog);
+});
+
+projectDialog?.addEventListener('click', (event) => {
+  if (event.target === projectDialog) {
+    closeProjectDialog();
+  }
+});
+
+projectDialog?.addEventListener('close', () => {
+  document.body.classList.remove('dialog-open');
+  projectDialogTrigger?.focus();
+});
+
+const educationTimeline = document.getElementById('educationTimeline');
+const timelineProgress = document.getElementById('timelineProgress');
+const timelineItems = [...document.querySelectorAll('.timeline-item')];
+const backToTop = document.getElementById('backToTop');
+let enhancementFrame;
+
+function updatePageEnhancements() {
+  backToTop?.classList.toggle('is-visible', window.scrollY > 720);
+
+  if (educationTimeline && timelineProgress) {
+    const rect = educationTimeline.getBoundingClientRect();
+    const startLine = window.innerHeight * 0.78;
+    const endLine = window.innerHeight * 0.28;
+    const distance = rect.height + startLine - endLine;
+    const progress = Math.min(Math.max((startLine - rect.top) / distance, 0), 1);
+    timelineProgress.style.transform = `scaleY(${progress})`;
+
+    const focusLine = window.innerHeight * 0.48;
+    let closestItem = null;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    timelineItems.forEach((item) => {
+      const itemRect = item.getBoundingClientRect();
+      const itemCenter = itemRect.top + Math.min(itemRect.height / 2, 45);
+      const itemDistance = Math.abs(itemCenter - focusLine);
+      if (itemDistance < closestDistance) {
+        closestDistance = itemDistance;
+        closestItem = item;
+      }
+    });
+
+    timelineItems.forEach((item) => {
+      item.classList.toggle('is-current', item === closestItem && rect.top < startLine && rect.bottom > endLine);
+    });
+  }
+}
+
+updatePageEnhancements();
+window.addEventListener('scroll', () => {
+  if (enhancementFrame) return;
+  enhancementFrame = window.requestAnimationFrame(() => {
+    updatePageEnhancements();
+    enhancementFrame = null;
+  });
+}, { passive: true });
+
+window.addEventListener('resize', updatePageEnhancements);
+
+backToTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+});
 
 const companion = document.getElementById('portfolioCompanion');
 const companionMessage = document.getElementById('companionMessage');
@@ -563,15 +704,14 @@ if (companion && companionMessage) {
   }
 
   function handleCompanionScroll() {
+    const now = performance.now();
+    if (now - lastCompanionScrollUpdate < 150) return;
+    lastCompanionScrollUpdate = now;
     updateCompanionScene();
     if (reduceMotion.matches) return;
     isCompanionScrolling = true;
     window.clearTimeout(companionMoveTimer);
-    const now = performance.now();
-    if (now - lastCompanionScrollUpdate > 150) {
-      lastCompanionScrollUpdate = now;
-      followPageProgress();
-    }
+    followPageProgress();
     window.clearTimeout(companionScrollTimer);
     companionScrollTimer = window.setTimeout(() => {
       isCompanionScrolling = false;
@@ -605,14 +745,25 @@ if (companion && companionMessage) {
   });
 
   if (pointerCanHover.matches && !reduceMotion.matches) {
+    let eyeFrame = 0;
+    let eyePointerX = 0;
+    let eyePointerY = 0;
+
     document.addEventListener('pointermove', (event) => {
-      const bounds = companion.getBoundingClientRect();
-      const centerX = bounds.left + bounds.width / 2;
-      const centerY = bounds.top + bounds.height / 2;
-      const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
-      const distance = Math.min(Math.hypot(event.clientX - centerX, event.clientY - centerY) / 120, 1);
-      companion.style.setProperty('--eye-x', `${Math.cos(angle) * 3 * distance}px`);
-      companion.style.setProperty('--eye-y', `${Math.sin(angle) * 2.5 * distance}px`);
+      eyePointerX = event.clientX;
+      eyePointerY = event.clientY;
+      if (eyeFrame) return;
+
+      eyeFrame = window.requestAnimationFrame(() => {
+        const bounds = companion.getBoundingClientRect();
+        const centerX = bounds.left + bounds.width / 2;
+        const centerY = bounds.top + bounds.height / 2;
+        const angle = Math.atan2(eyePointerY - centerY, eyePointerX - centerX);
+        const distance = Math.min(Math.hypot(eyePointerX - centerX, eyePointerY - centerY) / 120, 1);
+        companion.style.setProperty('--eye-x', `${Math.cos(angle) * 3 * distance}px`);
+        companion.style.setProperty('--eye-y', `${Math.sin(angle) * 2.5 * distance}px`);
+        eyeFrame = 0;
+      });
     }, { passive: true });
   }
 
@@ -646,3 +797,4 @@ if (companion && companionMessage) {
     scheduleCompanionAction();
   }
 }
+

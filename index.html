@@ -12,6 +12,24 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ANDRIAMAMONJISOA Amboara Oliva — Développeur web">
   <meta name="twitter:description" content="Découvrez mes projets et mes compétences en développement web.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "ANDRIAMAMONJISOA Amboara Oliva",
+      "alternateName": "Amboara",
+      "jobTitle": "Étudiant en développement web",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Itaosy",
+        "addressRegion": "Antananarivo",
+        "addressCountry": "MG"
+      },
+      "email": "amboaraandria61@gmail.com",
+      "telephone": "+261389697915",
+      "sameAs": ["https://github.com/Amboara08"]
+    }
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%231769ff'/%3E%3Cstop offset='1' stop-color='%237956ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M19 47 29 17h7l10 30h-8l-2-7H28l-2 7Zm11-14h5l-2.5-9Z' fill='white'/%3E%3C/svg%3E">
   <title>ANDRIAMAMONJISOA Amboara Oliva — Développeur web</title>
 
@@ -160,7 +178,7 @@
         </div>
 
         <div class="projects-grid">
-          <article class="project-card project-featured reveal">
+          <article class="project-card project-featured reveal" data-project-card>
             <div class="project-preview preview-clean" aria-hidden="true">
               <div class="preview-sidebar">
                 <span></span><span></span><span></span><span></span>
@@ -179,15 +197,19 @@
                 <li>React</li><li>Node.js</li><li>Electron</li><li>Express</li><li>MySQL</li>
               </ul>
               <div class="project-actions">
-                <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <button class="project-details" type="button" data-project-details>
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Explorer le projet
+                </button>
+                <a href="https://github.com/Amboara08/TanaClean-2035" target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-github" aria-hidden="true"></i>
-                  Voir le code
+                  Code du projet
                 </a>
               </div>
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-project-card>
             <div class="project-preview preview-farm" aria-hidden="true">
               <div class="weather-pill"><i class="fa-solid fa-cloud-sun"></i><strong>24°</strong></div>
               <div class="farm-landscape"><span></span><i></i></div>
@@ -201,15 +223,19 @@
                 <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
               </ul>
               <div class="project-actions">
+                <button class="project-details" type="button" data-project-details>
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Explorer le projet
+                </button>
                 <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-github" aria-hidden="true"></i>
-                  Voir le code
+                  Voir mes dépôts
                 </a>
               </div>
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-project-card>
             <div class="project-preview preview-agenda" aria-hidden="true">
               <div class="calendar-head"><span></span><strong>Octobre</strong><i></i></div>
               <div class="calendar-grid">
@@ -226,9 +252,13 @@
                 <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
               </ul>
               <div class="project-actions">
-                <a href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <button class="project-details" type="button" data-project-details>
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  Explorer le projet
+                </button>
+                <a href="https://github.com/Amboara08/Agenda-Personnel" target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-github" aria-hidden="true"></i>
-                  Voir le code
+                  Code du projet
                 </a>
               </div>
             </div>
@@ -241,7 +271,7 @@
       <div class="container about-grid">
         <div class="portrait-wrap reveal">
           <div class="portrait-frame">
-            <img src="images/profile-photo.png" alt="Portrait d’ANDRIAMAMONJISOA Amboara Oliva" width="640" height="640" loading="lazy">
+            <img src="images/profile-photo.png" alt="Portrait d’ANDRIAMAMONJISOA Amboara Oliva" width="520" height="520" loading="lazy" decoding="async">
           </div>
           <div class="portrait-note">
             <span class="note-mark">A.</span>
@@ -331,7 +361,8 @@
           <p>Ma formation me permet de consolider mes bases en programmation, bases de données, analyse et conception d’applications.</p>
         </div>
 
-        <div class="timeline reveal">
+        <div class="timeline reveal" id="educationTimeline">
+          <span class="timeline-progress" id="timelineProgress" aria-hidden="true"></span>
           <article class="timeline-item">
             <div class="timeline-date">2026 — Aujourd’hui</div>
             <div>
@@ -361,11 +392,11 @@
               <p>Lycée Catholique Saint Michel Itaosy</p>
             </div>
           </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2022</div>
+        <article class="timeline-item">
+            <div class="timeline-date">2024</div>
             <div>
-              <h3>DELF B1</h3>
-              <p>Alliance Française de Morondava</p>
+              <h3>Baccalauréat catholique série A2</h3>
+              <p>Lycée Catholique Saint Michel Itaosy</p>
             </div>
           </article>
         </div>
@@ -406,7 +437,7 @@
             </a>
             <a href="https://wa.me/261389679715" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-              <span><small>WhatsApp</small>+261 38 96 79 715</span>
+              <span><small>WhatsApp</small>+261 38 96 797 15</span>
             </a>
             <div>
               <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -418,6 +449,36 @@
     </section>
   </main>
 
+  <dialog class="project-dialog" id="projectDialog" aria-labelledby="projectDialogTitle" aria-describedby="projectDialogDescription">
+    <section class="project-dialog-panel">
+      <button class="project-dialog-close" type="button" data-dialog-close aria-label="Fermer la présentation du projet" autofocus>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="project-dialog-visual" aria-hidden="true">
+        <span class="project-dialog-orbit orbit-one"></span>
+        <span class="project-dialog-orbit orbit-two"></span>
+        <i class="fa-solid fa-code"></i>
+      </div>
+      <div class="project-dialog-content">
+        <p class="eyebrow" id="projectDialogMeta">Projet</p>
+        <h2 id="projectDialogTitle">Titre du projet</h2>
+        <p id="projectDialogDescription"></p>
+        <div class="project-dialog-stack">
+          <span>Technologies utilisées</span>
+          <ul id="projectDialogTags" class="tag-list"></ul>
+        </div>
+        <a class="button button-primary" id="projectDialogLink" href="https://github.com/Amboara08?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span id="projectDialogLinkLabel">Consulter le code</span>
+        </a>
+      </div>
+    </section>
+  </dialog>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Retourner en haut de la page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
   <button class="portfolio-companion" id="portfolioCompanion" type="button" aria-label="Dire bonjour à Môra, le compagnon du portfolio">
     <span class="companion-message" id="companionMessage" aria-hidden="true">Coucou&nbsp;! 👋</span>
     <span class="companion-shadow" aria-hidden="true"></span>
@@ -428,8 +489,45 @@
         <span class="companion-laptop-screen"><i></i></span>
         <span class="companion-laptop-base"></span>
       </span>
-      <span class="companion-glasses"><i></i></span>
-      <span class="companion-graduation-cap"><i></i></span>
+      <svg class="companion-glasses" viewBox="0 0 100 46" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="moraLens" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.52"/>
+            <stop offset="0.45" stop-color="#a7ddff" stop-opacity="0.2"/>
+            <stop offset="1" stop-color="#6aa9dd" stop-opacity="0.08"/>
+          </linearGradient>
+        </defs>
+        <path class="glasses-temple" d="M6 17 1 13M94 17l5-4"/>
+        <path class="glasses-frame" d="M7 13c2-5 10-7 25-5 9 1 13 5 12 13-1 11-8 17-19 16C14 37 8 30 7 20c0-3 0-5 0-7Z"/>
+        <path class="glasses-frame" d="M93 13c-2-5-10-7-25-5-9 1-13 5-12 13 1 11 8 17 19 16 11 0 17-7 18-17v-7Z"/>
+        <path class="glasses-lens" d="M12 14c4-3 11-4 19-3 7 1 10 4 9 10-1 8-6 12-14 12-8 0-13-5-14-13v-6Z"/>
+        <path class="glasses-lens" d="M88 14c-4-3-11-4-19-3-7 1-10 4-9 10 1 8 6 12 14 12 8 0 13-5 14-13v-6Z"/>
+        <path class="glasses-bridge" d="M43 18c4-4 10-4 14 0"/>
+        <path class="glasses-shine" d="M18 15c4-2 8-2 11-1M66 15c4-2 8-2 11-1"/>
+      </svg>
+      <svg class="companion-graduation-cap" viewBox="0 0 120 82" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="moraCapBoard" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#39425d"/>
+            <stop offset="0.52" stop-color="#1d2336"/>
+            <stop offset="1" stop-color="#090c16"/>
+          </linearGradient>
+          <linearGradient id="moraCapBand" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a324c"/>
+            <stop offset="1" stop-color="#0b0f1c"/>
+          </linearGradient>
+        </defs>
+        <path class="cap-band" d="M35 38c8-8 42-9 51 0l-4 23c-10 9-34 9-44 0l-3-23Z"/>
+        <path class="cap-band-highlight" d="M40 45c11 6 29 7 41 0"/>
+        <path class="cap-board" d="m60 7 54 21-54 23L6 28 60 7Z"/>
+        <path class="cap-board-edge" d="m7 28 53 19 53-19v6L60 55 7 34v-6Z"/>
+        <circle class="cap-button" cx="60" cy="28" r="5"/>
+        <g class="cap-tassel">
+          <path class="cap-tassel-cord" d="M62 28c18 4 28 15 32 29"/>
+          <path class="cap-tassel-knot" d="M89 54h10l-2 8h-7l-1-8Z"/>
+          <path class="cap-tassel-fringe" d="M91 61h6l5 16-7-3-7 3 3-16Z"/>
+        </g>
+      </svg>
       <span class="companion-face">
         <span class="companion-eye companion-eye-left"><i></i></span>
         <span class="companion-eye companion-eye-right"><i></i></span>
