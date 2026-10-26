@@ -20,7 +20,7 @@ function storeTheme(theme) {
   try {
     localStorage.setItem(storageKey, theme);
   } catch {
-    // Le site reste fonctionnel lorsque le stockage est désactivé.
+   
   }
 }
 
